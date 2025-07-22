@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netflix</title>
+    <link rel="stylesheet" href="signin.css">
+    <script>
+        function signOut() {
+            window.location.href = "netflix.html"; 
+        }
+        function planform(){
+            window.location.href="planform.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" id="logo">
+        <button id="b2" onclick="signOut()" type="button"><b>Sign Out</b></button>
+    </header>
+    <div id="content">
+        <div class="container">
+            <img src="tick.png" id="tick">            
+            <ul>
+                <li id="p1">
+                    Choose your plan.
+                </li>
+                <li>
+                    <img src="ticks.png" alt="Tick">
+                    No commitments, cancel anytime.
+                </li>
+                <li>
+                    <img src="ticks.png" alt="Tick">
+                    Everything on Netflix for one low price.
+                </li>
+                <li>
+                    <img src="ticks.png" alt="Tick">
+                    No ads and no extra fees. Ever.
+                </li>
+            </ul>
+            <button id="next" type="button" onclick="planform()">Next</button>
+        </div>
+    </div>
+    
+    <footer>
+        <a href="https://help.netflix.com/contactus" id="contactLink">Questions? Contact us.</a>
+        <div class="footer-links">
+            <ul class="footer-list">
+                <li><a href="https://help.netflix.com/support/412">FAQ</a></li>
+                <li><a href="https://help.netflix.com/">Help Center</a></li>
+                <li><a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+                <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+            </ul>
+            <ul class="footer-list">
+                <li><a href="https://www.netflix.com/signup?locale=en-PK#">Cookie Preferences</a></li>
+                <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

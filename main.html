@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Netflix</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="content">
+            <div id="slideshow-container">
+                <img src="w1.jpg" alt="Image 1" class="slide" id="slide1">
+                <img src="w2.jpg" alt="Image 2" class="slide" id="slide2">
+                <img src="w3.jpg" alt="Image 3" class="slide" id="slide3">
+            </div>
+
+            <header>
+                <img src="logo.png" id="logo">
+                <ul>
+                    <li id="home">Home</li>
+                    <li id="movies">Movies</li>
+                    <li id="series">Series</li>
+                    <li id="mylist">My list</li>
+                </ul>
+            </header>
+            <div id="left">
+            <p id="p1">Duration: 51m</p>
+            <p id="p2">⭐<b>7.5 </b>Season 8 - Episode 14 - Still gotta mean something.</p>
+            <p id="p3">Eugene grapples with loyalty as he devises a plan to help the Saviors escape the Sanctuary. Meanwhile, Daryl, Tara, and Rosita clash over risky tactics against Negan. Rick's bold attempt to recruit Jadis and the Scavengers hangs in the balance. Tensions rise as trust and survival collide.</p>
+            <h1>The Walking Dead</h1>
+            <button id="w">WATCH</button>
+            <button id="a">ADD LIST</button>
+            </div>
+            <div id="bar-container">
+                <div class="bar" id="bar1"></div>
+                <div class="bar" id="bar2"></div>
+                <div class="bar" id="bar3"></div>
+            </div>
+        </div>
+        <footer>
+            <a href="https://help.netflix.com/contactus" id="contactLink">Questions? Contact us.</a>
+            <div class="footer-links">
+                <ul class="footer-list">
+                    <li><a href="https://help.netflix.com/support/412">FAQ</a></li>
+                    <li><a href="https://help.netflix.com/">Help Center</a></li>
+                    <li><a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+                    <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+                </ul>
+                <ul class="footer-list">
+                    <li><a href="https://www.netflix.com/signup?locale=en-PK#">Cookie Preferences</a></li>
+                    <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+                </ul>
+            </div>
+        </footer>
+        
+        <script>
+            // Select all menu items
+            const menuItems = document.querySelectorAll(".content #overdiv header ul li");
+
+            // Add click event listener to each menu item
+            menuItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    // Remove 'active' class from all items
+                    menuItems.forEach(el => el.classList.remove("active"));
+
+                    // Add 'active' class to the clicked item
+                    item.classList.add("active");
+
+                    // Perform specific action for the clicked item
+                    performAction(item.id);
+                });
+            });
+
+            // Define actions for menu items
+            function performAction(itemId) {
+                switch (itemId) {
+                    case "home":
+                        console.log("Home selected");
+                        break;
+                    case "movies":
+                        console.log("Movies selected");
+                        break;
+                    case "series":
+                        console.log("Series selected");
+                        break;
+                    case "mylist":
+                        console.log("My List selected");
+                        break;
+                    default:
+                        console.log("No action defined");
+                }
+            }
+
+            let currentIndex = 0;
+            const slides = document.querySelectorAll('.slide');
+            const bars = document.querySelectorAll('.bar');
+            const slideInterval = 3000; // 3 seconds
+
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.style.opacity = 0;
+                });
+
+                // Remove active class from all bars
+                bars.forEach(bar => {
+                    bar.classList.remove('active');
+                });
+
+                // Show the current slide
+                slides[index].style.opacity = 1;
+
+                // Highlight the corresponding bar
+                bars[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }
+
+            // Initial setup
+            showSlide(currentIndex);
+
+            // Set an interval to change the slide every 3 seconds
+            setInterval(nextSlide, slideInterval);
+
+        </script>
+    </body>
+</html>

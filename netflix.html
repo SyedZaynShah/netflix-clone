@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Netflix – Watch TV Shows Online, Watch Movies Online</title>
+    <link rel="stylesheet" href="netflix.css">
+</head>
+<body>
+    <section class="Banner">
+        <h1 id="front">Unlimited movies,<br> TV shows, and more</h1>
+        <h2 id="front2">Starts at Rs 250. Cancel anytime.</h2>
+        <p id="front3">Ready to watch? Enter your email to create or restart your membership.</p>
+        <img src="banner.png" class="banner-img">
+
+        <div class="search-bar">
+            <form onsubmit="return validate()">
+                <input type="email" placeholder="Email Address" id="email">
+                <input type="submit" value="Get Started  >" id="b1">
+            </form>
+        
+            
+        </div>
+
+        <button id="b2" onclick="signup()"><b>Sign In</b></button>
+    </section>
+
+    <section class="TrendingNow">
+        <h1 id="Trending">Trending Now</h1>
+
+        <div class="combo-boxes">
+            <div id="box1">
+                <select>
+                    <option value="">Pakistan</option>
+                    <option value="1">Global</option>
+                </select>
+            </div>
+            <div id="box2">
+                <select>
+                    <option value="">Movies</option>
+                    <option value="1">TV Shows</option>
+                </select>
+            </div>
+        </div>
+        <div class="slider-container">
+            <button class="prev" onclick="slide(-1)">&#10094;</button>
+            <div id="movies" class="slider">
+                <div class="m"></div>
+                <div class="m" id="m2"></div>
+                <div class="m" id="m3"></div>
+                <div class="m" id="m4"></div>
+                <div class="m" id="m5"></div>
+                <div class="m" id="m6"></div>
+                <div class="m" id="m7"></div>
+                <div class="m" id="m8"></div>
+                <div class="m" id="m9"></div>
+                <div class="m" id="m10"></div>
+            </div>
+            <button class="next" onclick="slide(1)">&#10095;</button>
+        </div>
+       
+    </section>
+    <br>
+    <br>
+    <section class="More">
+        <h1 id="More">More Reasons to Join</h1>
+        <div class="mdivs" id="d1">
+            <h1>Enjoy on your TV</h1>
+            <p id="p1">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+            <img src="d1.png" class="d">
+        </div>
+        <div class="mdivs" id="d2">
+            <h1>Download your<br> shows to watch<br> offline</h1>
+            <p id="p2">Save your favorites easily and always have something to watch.</p>
+            <img src="d2.png" class="d">
+        </div>
+        <div class="mdivs" id="d3">
+            <h1>Watch everywhere</h1>
+            <p id="p3">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+            <img src="d3.png" class="d">
+        </div>
+        <div class="mdivs" id="d4">
+            <h1>Create profiles for<br> kids</h1>
+            <p id="p4">Send kids on adventures with their favorite characters in a space made just for them — free with your membership.</p>
+            <img src="d4.png" class="d">
+        </div>
+    </section>
+    <br>
+    <br>
+    <section class="faqs">
+        <h1 id="faq">Frequently Asked Questions</h1>
+        <div class="f" id="f1" onclick="toggleFaq(this)">
+            What is Netflix?
+            <img src="plus.png" class="plus">
+        </div>
+        <div class="f" id="f2" onclick="toggleFaq(this)">
+            How much Netflix cost?
+            <img src="plus.png" class="plus">
+        </div>
+        <div class="f" id="f3" onclick="toggleFaq(this)">
+            Where can I watch?
+            <img src="plus.png" class="plus">
+        </div>
+        <div class="f" id="f4" onclick="toggleFaq(this)">
+            How do I cancel?
+            <img src="plus.png" class="plus">
+        </div>
+        <div class="f" id="f5" onclick="toggleFaq(this)">
+            What can I watch on Netflix?
+            <img src="plus.png" class="plus">
+        </div>
+        <div class="f" id="f6" onclick="toggleFaq(this)">
+            Is Netflix good for Kids?
+            <img src="plus.png" class="plus">
+        </div>
+    </section>
+    <footer>
+        <a href="https://help.netflix.com/contactus" id="contactLink">Questions? Contact us.</a>
+        <div class="footer-links">
+            <ul class="footer-list">
+                <li><a href="https://help.netflix.com/support/412">FAQ</a></li>
+                <li><a href="https://help.netflix.com/">Help Center</a></li>
+                <li><a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+                <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+            </ul>
+            <ul class="footer-list">
+                <li><a href="https://www.netflix.com/signup?locale=en-PK#">Cookie Preferences</a></li>
+                <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+
+    <script>
+        function signup(){
+            window.location.href="signup.html";
+        }
+    function validate() {
+            const emailInput = document.getElementById("email");
+
+            if (!emailInput.value) {
+                emailInput.focus();
+                emailInput.classList.add('error-input');
+                
+                return false;
+            }
+
+            localStorage.setItem('userEmail', emailInput.value);
+            window.location.href = "login.html";
+            return false; 
+        }
+        let scrollAmount = 0;
+
+        function slide(direction) {
+            const container = document.getElementById("movies");
+            const scrollStep = 220;
+
+            if (direction === 1) {
+                container.scrollBy({ left: scrollStep, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+            }
+        }
+
+        function toggleFaq(element) {
+    let contentDiv = element.nextElementSibling;
+
+    if (contentDiv && contentDiv.classList.contains('faq-content')) {
+        if (contentDiv.classList.contains('show')) {
+            contentDiv.style.height = '0';
+            contentDiv.style.opacity = '0';
+            contentDiv.classList.remove('show');
+            setTimeout(() => {
+                contentDiv.style.display = 'none'; 
+            }, 500); 
+        } else {
+            contentDiv.style.display = 'block';
+            setTimeout(() => {
+                contentDiv.style.height = `${contentDiv.scrollHeight}px`; 
+                contentDiv.style.opacity = '1';
+            }, 10);
+            contentDiv.classList.add('show');
+        }
+        } else {
+            contentDiv = document.createElement('div');
+            contentDiv.className = 'faq-content show';
+            contentDiv.innerHTML = '<p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.<br> You can watch as much as you want, whenever you want without a single commercial &mdash; all for one low monthly price. There\'s always something new to discover and new TV shows and movies are added every week!</p>';
+            contentDiv.style.height = '0'; 
+            contentDiv.style.opacity = '0';
+            contentDiv.style.overflow = 'hidden';
+            contentDiv.style.transition = 'all 0.5s ease-in-out';
+
+            element.parentNode.insertBefore(contentDiv, element.nextSibling);
+
+            setTimeout(() => {
+                contentDiv.style.height = `${contentDiv.scrollHeight}px`;
+                contentDiv.style.opacity = '1';
+            }, 10);
+        }
+    }
+    </script>
+</body>
+</html>

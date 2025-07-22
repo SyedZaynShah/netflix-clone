@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Netflix</title>
+        <link rel="stylesheet" href="signup.css">
+        <script>
+            function signIn(event) {
+                event.preventDefault(); // Prevent the form from submitting in the traditional way
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Ensure both fields are filled out
+                if (email && password) {
+                    // Redirect to the main page if validation passes
+                    window.location.href = "main.html"; // Replace with the actual URL of the main page
+                } else {
+                    // Show alert if fields are empty
+                    alert('Please fill in both fields.');
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="content">
+            <img src="banner2.jpg" alt="Banner Image">
+            <div id="overdiv"></div>
+            <div id="credidentials">
+                <h1>Sign In</h1>
+                <form onsubmit="signIn(event)">
+                    <input type="email" id="email" name="email" placeholder="Email or Mobile Number" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Sign In" id="submit">
+                </form>
+                <a href="#">Forgot password?</a>
+                <p>New to Netflix? <a href="netflix.html">Sign up now</a>.</p>
+                <p id="p1">This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.</p>
+            </div>
+        </div>
+        <footer>
+            <a href="https://help.netflix.com/contactus" id="contactLink">Questions? Contact us.</a>
+            <div class="footer-links">
+                <ul class="footer-list">
+                    <li><a href="https://help.netflix.com/support/412">FAQ</a></li>
+                    <li><a href="https://help.netflix.com/">Help Center</a></li>
+                    <li><a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+                    <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+                </ul>
+                <ul class="footer-list">
+                    <li><a href="https://www.netflix.com/signup?locale=en-PK#">Cookie Preferences</a></li>
+                    <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netflix</title>
+    <link rel="stylesheet" href="planform.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.plandivs').forEach(function(planDiv) {
+        planDiv.addEventListener('click', function() {
+            document.querySelectorAll('.plandivs').forEach(function(div) {
+                div.classList.remove('selected');
+            });
+
+            planDiv.classList.add('selected');
+
+            document.getElementById('next').disabled = false;
+        });
+    });
+});
+
+
+function planform() {
+    if (document.querySelector('.plandivs.selected')) {
+        window.location.href = "main.html";
+    } else {
+        alert("Please select a plan to proceed!");
+    }
+}
+
+function signOut() {
+    window.location.href = "netflix.html";
+}
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" id="logo">
+        <button id="b2" onclick="signOut()" type="button"><b>Sign Out</b></button>
+    </header>
+    <div id="content">
+        <div class="container">
+            <h1>Choose the plan that’s right for you</h1>
+            <div class="plan">
+                <div class="plandivs">
+                    <div class="sdiv-mobile" id="mobilePlan">
+                        <h2>Mobile</h2>
+                        <p class="sp">480p</p>
+                    </div>
+                    <h3>Monthly price</h3>
+                    <p>Rs 250</p>
+                    <hr>
+                    <h3>Video and sound quality</h3>
+                    <p>Fair</p>
+                    <hr>
+                    <h3>Resolution</h3>
+                    <p>480p</p>
+                    <hr>
+                    <h3>Supported devices</h3>
+                    <p>Mobile phone, tablet</p>
+                    <hr>
+                    <h3>Devices your household can watch at the<br> same time</h3>
+                    <p>1</p>
+                    <hr>
+                    <h3>Download devices</h3>
+                    <p>1</p>
+                </div>
+                <div class="plandivs">
+                    <div class="sdiv-basic" id="basicPlan">
+                        <h2>Basic</h2>
+                        <p class="sp">720p</p>
+                    </div>
+                    <h3>Monthly price</h3>
+                    <p>Rs 450</p>
+                    <hr>
+                    <h3>Video and sound quality</h3>
+                    <p>Good</p>
+                    <hr>
+                    <h3>Resolution</h3>
+                    <p>720p (Full HD)</p>
+                    <hr>
+                    <h3>Supported devices</h3>
+                    <p>Mobile phone, tablet</p>
+                    <hr>
+                    <h3>Devices your household can watch at the<br> same time</h3>
+                    <p>1</p>
+                    <hr>
+                    <h3>Download devices</h3>
+                    <p>1</p>
+                </div>
+                <div class="plandivs">
+                    <div class="sdiv-standard" id="standardPlan">
+                        <h2>Standard</h2>
+                        <p class="sp">1080p</p>
+                    </div>
+                    <h3>Monthly price</h3>
+                    <p>Rs 800</p>
+                    <hr>
+                    <h3>Video and sound quality</h3>
+                    <p>Great</p>
+                    <hr>
+                    <h3>Resolution</h3>
+                    <p>1080p (Full HD)</p>
+                    <hr>
+                    <h3>Supported devices</h3>
+                    <p>Mobile phone, tablet</p>
+                    <hr>
+                    <h3>Devices your household can watch at the<br> same time</h3>
+                    <p>2</p>
+                    <hr>
+                    <h3>Download devices</h3>
+                    <p>2</p>
+                </div>
+                <div class="plandivs">
+                    <div class="sdiv-premium" id="standardPlan">
+                        <h2>Premium</h2>
+                        <p class="sp">4K + HDR</p>
+                    </div>
+
+                    <h3>Monthly price</h3>
+                    <p>Rs 1,100</p>
+                    <hr>
+                    <h3>Video and sound quality</h3>
+                    <p>Best</p>
+                    <hr>
+                    <h3>Resolution</h3>
+                    <p>4K (Ultra HD) + HDR</p>
+                    <hr>
+                    <h3>Supported devices</h3>
+                    <p>Mobile phone, tablet</p>
+                    <hr>
+                    <h3>Devices your household can watch at the<br> same time</h3>
+                    <p>4</p>
+                    <hr>
+                    <h3>Download devices</h3>
+                    <p>6</p>
+                </div>
+            </div>
+            <p>HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject to your internet service and device capabilities. Not all content is available in all resolutions. See our <a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a> for more details.
+                Only people who live with you may use your account. Watch on 4 different devices at the same time with Premium, 2 with Standard, and 1 with Basic and Mobile.</p>
+                <button id="next" type="button" onclick="planform()" disabled>Next</button>
+        </div>
+    </div>
+    
+    <footer>
+        <a href="https://help.netflix.com/contactus" id="contactLink">Questions? Contact us.</a>
+        <div class="footer-links">
+            <ul class="footer-list">
+                <li><a href="https://help.netflix.com/support/412">FAQ</a></li>
+                <li><a href="https://help.netflix.com/">Help Center</a></li>
+                <li><a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+                <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+            </ul>
+            <ul class="footer-list">
+                <li><a href="https://www.netflix.com/signup?locale=en-PK#">Cookie Preferences</a></li>
+                <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

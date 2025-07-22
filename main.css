@@ -1,0 +1,225 @@
+body {
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+}
+
+.content {
+    position: relative;
+    height: 1080px;
+    width: 1920px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+#slideshow-container {
+    position: absolute; /* Absolute positioning keeps it behind the header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin:-10px;
+    z-index: -1; /* Ensure slideshow stays behind other content */
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#bar-container {
+    position: absolute;
+    bottom: 50px; /* Positioned 900px vertically */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.bar {
+    width: 100px;
+    height: 10px;
+    margin: 0 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s ease, height 0.3s ease;
+}
+
+.bar.active {
+    background-color: #f02626;
+    height: 15px; /* Highlight the active bar */
+}
+
+header {
+    position: absolute;
+    top:-20px;
+    left: -15px;
+    width:1890px;
+    height: 100px;
+    border-bottom: 4px solid #f02626;
+    display: flex;
+    border-radius: 30px;
+    padding-left: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 25px rgba(255, 0, 0, 0.3);
+    z-index: 1; /* Ensure header stays above the slideshow */
+}
+
+header img {
+    margin-right: 400px;
+}
+
+header ul {
+    color: rgb(182, 176, 176);
+    font-size: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+header ul li {
+    margin: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+header ul li:hover {
+    color: white;
+}
+
+header ul li.active::after,
+header ul li:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -45px; /* Ensure the dot is below the item */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background-color: #f02626;
+    border-radius: 50%;
+}
+
+header ul li.active {
+    color: white;
+}
+
+#w {
+    position: absolute;
+    top: 720px;
+    left: 120px;
+    background-color: rgb(229, 9, 20);
+    border: none;
+    color: white;
+    height: 50px;
+    width: 140px;
+    font-size: 16px;
+    justify-content: center;
+    display: flex;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 25px 25px rgba(255, 0, 0, 0.3);
+
+}
+
+#w:hover {
+    background-color: rgb(141, 2, 2);
+}
+
+#a {
+    position: absolute;
+    top: 720px;
+    left: 290px;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: white;
+    height: 50px;
+    width: 140px;
+    font-size: 16px;
+    justify-content: center;
+    display: flex;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+#a:hover {
+    background-color: rgb(29, 28, 28);
+}
+h1{
+    font-size: 40px;
+}
+#left{
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    width:450px;
+}
+footer {
+    margin-right: -10px;
+    margin: -20px;
+    background-color: #08090a;
+    border-top: 4px solid #f02626;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+    color: rgb(182, 176, 176);
+    font-size: 14px;
+    z-index: 10;
+}
+
+#contactLink {
+    display: block;
+    margin-bottom: 20px;
+    color: rgb(182, 176, 176);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contactLink:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.footer-list li {
+    margin: 5px 0;
+}
+
+.footer-list a {
+    color: rgb(182, 176, 176);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-list a:hover {
+    color: white;
+    text-decoration: underline;
+}
